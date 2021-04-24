@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/shovel.png-bfc40e325a6e858840cb83b70a421f38.stex"
+path="res://.import/balloon.png-d1943b3e692c32d7d44cdda80265f9e4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://BehaviourZones/Sprites/shovel.png"
-dest_files=[ "res://.import/shovel.png-bfc40e325a6e858840cb83b70a421f38.stex" ]
+source_file="res://GameUI/Sprites/balloon.png"
+dest_files=[ "res://.import/balloon.png-d1943b3e692c32d7d44cdda80265f9e4.stex" ]
 
 [params]
 

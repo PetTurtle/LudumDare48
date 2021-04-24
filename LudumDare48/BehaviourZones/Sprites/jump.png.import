@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/shovel.png-bfc40e325a6e858840cb83b70a421f38.stex"
+path="res://.import/jump.png-277484ac4f10d7141cd1bcc82c0f38e3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://BehaviourZones/Sprites/shovel.png"
-dest_files=[ "res://.import/shovel.png-bfc40e325a6e858840cb83b70a421f38.stex" ]
+source_file="res://BehaviourZones/Sprites/jump.png"
+dest_files=[ "res://.import/jump.png-277484ac4f10d7141cd1bcc82c0f38e3.stex" ]
 
 [params]
 

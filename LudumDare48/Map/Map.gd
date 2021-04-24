@@ -18,6 +18,10 @@ func get_tile(point: Vector2) -> int:
 	return terrain_map.get_cellv(map_point)
 
 
+func has_floor(point: Vector2) -> bool:
+	var map_point := terrain_map.world_to_map(point)
+	return terrain_map.get_cellv(map_point + Vector2(0, 1)) != -1
+
 func get_clamped(point: Vector2) -> Vector2:
 	var map_point := terrain_map.world_to_map(point)
 	return map_point * terrain_map.cell_size + (terrain_map.cell_size * 0.5)
