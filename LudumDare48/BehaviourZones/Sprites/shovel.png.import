@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/terrain_sheet.png-846a9b9dd5e8060c15d0a0552980c123.stex"
+path="res://.import/shovel.png-bfc40e325a6e858840cb83b70a421f38.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TerrainMap/terrain_sheet.png"
-dest_files=[ "res://.import/terrain_sheet.png-846a9b9dd5e8060c15d0a0552980c123.stex" ]
+source_file="res://BehaviourZones/Sprites/shovel.png"
+dest_files=[ "res://.import/shovel.png-bfc40e325a6e858840cb83b70a421f38.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

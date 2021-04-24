@@ -7,27 +7,28 @@ onready var _up_ray: RayCast2D = $UpRaycast
 onready var _down_ray: RayCast2D = $DownRaycast
 onready var _left_ray: RayCast2D = $LeftRaycast
 onready var _right_ray: RayCast2D = $RightRaycast
-onready var _walk_behaviour = preload("res://Behaviours/WalkBehaviour.tscn")
+onready var _walk_behaviour: PackedScene = preload("res://Behaviours/WalkBehaviour.tscn")
 
 
 func _ready() -> void:
-	set_behaviour(_walk_behaviour)
+	var _walk = set_behaviour(_walk_behaviour)
 
 
 func _physics_process(_delta) -> void:
 	_sprite.flip_h = linear_velocity.x < 0
 
 
-func set_behaviour(behavour_packed_scene: PackedScene) -> void:
+func set_behaviour(behavour_packed_scene: PackedScene) -> Node2D:
 	if curr_behaviour != null:
 		curr_behaviour.queue_free()
 	
 	curr_behaviour = behavour_packed_scene.instance()
 	add_child(curr_behaviour)
+	return curr_behaviour
 
 
 func finish_behaviour() -> void:
-	set_behaviour(_walk_behaviour)
+	var _walk = set_behaviour(_walk_behaviour)
 
 
 func set_animation(animation: String) -> void:
