@@ -21,6 +21,7 @@ func mine_tile(point: Vector2) -> void:
 		G.set_money(G.money + 8)
 	
 	terrain_map.set_cellv(map_point, -1)
+	terrain_map.update_bitmask_area(map_point)
 
 
 func has_tile(point: Vector2) -> bool:
@@ -60,7 +61,9 @@ func _explode(x: int, y: int, stength: int) -> void:
 	elif id == 10:
 		G.set_money(G.money + 8)
 		
-	terrain_map.set_cell(x, y, -1)
+	var point = Vector2(x, y)
+	terrain_map.set_cellv(point, -1)
+	terrain_map.update_bitmask_area(point)
 	_explode(x + 1, y, stength - 1)
 	_explode(x - 1, y, stength - 1)
 	_explode(x, y + 1, stength - 1)
