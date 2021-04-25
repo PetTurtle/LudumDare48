@@ -21,7 +21,7 @@ __meta__ = {
 }
 
 [node name="DigTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.4
 one_shot = true
 
 [connection signal="timeout" from="DigTimer" to="." method="_on_DigTimer_timeout"]

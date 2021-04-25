@@ -25,7 +25,7 @@ func moving_left() -> bool:
 
 func _physics_process(_delta) -> void:
 	if not dwarf.is_colliding(Vector2.DOWN):
-		dwarf.set_animation("climb")
+		dwarf.set_animation("fall")
 	else:
 		dwarf.set_animation("walk")
 	

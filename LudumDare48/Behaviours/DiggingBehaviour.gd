@@ -22,6 +22,7 @@ func _physics_process(_delta):
 	dwarf.velocity.x = 0
 	
 	if mining:
+		dwarf.set_animation("dig")
 		return
 	
 	if dwarf.is_colliding(Vector2.DOWN):
@@ -35,6 +36,7 @@ func _physics_process(_delta):
 
 func mine():
 	mining = true
+	
 	dig_timer.start()
 
 

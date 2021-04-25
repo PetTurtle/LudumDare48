@@ -38,10 +38,11 @@ func set_mine_amount(value: int):
 
 func _physics_process(_delta):
 	if mining:
+		dwarf.set_animation("mine")
 		return
 	
 	if not dwarf.is_colliding(Vector2.DOWN):
-		dwarf.set_animation("climb")
+		dwarf.set_animation("fall")
 	else:
 		dwarf.set_animation("walk")
 	

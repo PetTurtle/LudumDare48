@@ -39,7 +39,7 @@ func _ready() -> void:
 #	buttons["jump"].visible = false
 #	buttons["float"].visible = false
 #	buttons["explode"].visible = false
-	G.connect("money_changed", self, "_on_money_change")
+	var _e = G.connect("money_changed", self, "_on_money_change")
 
 
 func _create_button(texture: StreamTexture, price: int, packed_scene: PackedScene, drag: bool, axis: int, max_distance: int, needs_floor: bool) -> TextureButton:

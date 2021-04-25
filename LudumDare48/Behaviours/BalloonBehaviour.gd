@@ -31,6 +31,7 @@ func _physics_process(_delta) -> void:
 		walk.set_moving_right(moving_right())
 		
 	if not started_floating and not dwarf.is_colliding(Vector2.DOWN):
+		dwarf.set_animation("balloon")
 		started_floating = true
 	
 	if dwarf.is_long_colliding():

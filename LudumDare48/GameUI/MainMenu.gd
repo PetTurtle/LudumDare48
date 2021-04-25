@@ -21,6 +21,6 @@ func _on_BackButton_pressed():
 	self.visible = not self.visible
 
 
-func _process(delta):
+func _process(_delta):
 	if game_started and Input.is_action_just_pressed("escape"):
 		self.visible = not self.visible
