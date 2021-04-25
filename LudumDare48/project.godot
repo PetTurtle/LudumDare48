@@ -33,6 +33,7 @@ G="*res://Autoload/G.gd"
 window/size/width=320
 window/size/height=180
 window/size/fullscreen=true
+mouse_cursor/custom_image="res://mouse.png"
 window/stretch/mode="2d"
 
 [input]
@@ -75,7 +76,7 @@ ui_page_up={
 }
 camera_drag={
 "deadzone": 0.5,
-"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":2,"pressed":false,"doubleclick":false,"script":null)
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":3,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
 place_start={

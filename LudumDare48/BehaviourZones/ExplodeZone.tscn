@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://BehaviourZones/ExplodeZone.gd" type="Script" id=1]
 [ext_resource path="res://BehaviourZones/Sprites/explosion.png" type="Texture" id=2]
+[ext_resource path="res://Audio/boom.wav" type="AudioStream" id=3]
+[ext_resource path="res://AudioPlayer/AudioPlayer.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2, 2.5 )
@@ -22,5 +24,9 @@ texture = ExtResource( 2 )
 position = Vector2( -0.5, 1.5 )
 shape = SubResource( 1 )
 
+[node name="AudioStreamPlayer" parent="." instance=ExtResource( 4 )]
+stream = ExtResource( 3 )
+
 [connection signal="body_entered" from="." to="." method="_on_ExplodeZone_body_entered"]
 [connection signal="timeout" from="ExplosionTimer" to="." method="_on_ExplosionTimer_timeout"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]

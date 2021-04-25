@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Behaviours/MiningBehaviour.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/pixel.tres" type="DynamicFont" id=2]
+[ext_resource path="res://AudioPlayer/AudioPlayer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Audio/break.wav" type="AudioStream" id=4]
 
 [node name="MiningBehaviour" type="Node2D"]
 z_index = 7
@@ -23,5 +25,8 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource( 3 )]
+stream = ExtResource( 4 )
 
 [connection signal="timeout" from="MineTimer" to="." method="_on_MineTimer_timeout"]

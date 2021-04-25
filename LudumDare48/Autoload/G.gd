@@ -1,6 +1,7 @@
 extends Node
 
 signal money_changed
+signal money_increased
 
 var money: int = 0
 var dwarf_speed := 15
@@ -33,5 +34,8 @@ func set_behaviour_placer(behaviour_placer_node: Node2D) -> void:
 
 
 func set_money(value: int) -> void:
+	if (money < value):
+		emit_signal("money_increased")
+	
 	money = value
 	emit_signal("money_changed")

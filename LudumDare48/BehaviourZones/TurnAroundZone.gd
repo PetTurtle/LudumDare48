@@ -1,10 +1,19 @@
 extends Area2D
 
 onready var walk_behaviour: PackedScene = load("res://Behaviours/WalkBehaviour.tscn")
+onready var sprite: AnimatedSprite = $AnimatedSprite
+export var open:= false
+
+
+func _ready():
+	if open:
+		sprite.play("open")
+	else:
+		sprite.play("close")
 
 
 func _on_Node2D_body_entered(body) -> void:
-	if not visible:
+	if open:
 		return
 	
 	var dwarf: PhysicsBody2D = body
@@ -19,4 +28,8 @@ func _on_Node2D_body_entered(body) -> void:
 
 func _input(_event):
 	if Input.is_action_just_pressed("place_start") and position.distance_to(get_global_mouse_position()) < 3:
-		self.visible = not self.visible
+		open = not open
+		if open:
+			sprite.play("open")
+		else:
+			sprite.play("close")

@@ -2,9 +2,10 @@ extends Control
 
 var buttons: Dictionary
 
-onready var hotbar: Control = $Hotbar
+onready var hotbar: Control = $Hud/Hotbar
 onready var button_packed_scene = preload("res://GameUI/BehaviourButton.tscn")
-onready var money_label: = $Label
+onready var money_label: = $Hud/CoinLanel
+onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 
 onready var mine_image = preload("res://GameUI/Sprites/pick.png")
 onready var shovel_image = preload("res://GameUI/Sprites/shovel.png")
@@ -40,6 +41,7 @@ func _ready() -> void:
 #	buttons["float"].visible = false
 #	buttons["explode"].visible = false
 	var _e = G.connect("money_changed", self, "_on_money_change")
+	_e = G.connect("money_increased", self, "_on_money_increased")
 
 
 func _create_button(texture: StreamTexture, price: int, packed_scene: PackedScene, drag: bool, axis: int, max_distance: int, needs_floor: bool) -> TextureButton:
@@ -55,3 +57,8 @@ func unlock(ability: String) -> void:
 
 func _on_money_change():
 	money_label.text = str(G.money)
+
+
+func _on_money_increased():
+	audio.ran_pitch()
+	audio.play()

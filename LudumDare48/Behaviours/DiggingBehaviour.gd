@@ -7,6 +7,7 @@ var mining := false
 onready var dig_timer: Timer = $DigTimer
 onready var mine_amount_label: Label = $MineAmountLabel
 onready var walk_behaviour: PackedScene = load("res://Behaviours/WalkBehaviour.tscn")
+onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 
 
 func _ready() -> void:
@@ -47,4 +48,6 @@ func _on_DigTimer_timeout():
 		mine_amount_label.text = ""
 	else:
 		mine_amount_label.text = str(mine_amount)
+	audio.ran_pitch()
+	audio.play()
 	G.map.mine_tile(dwarf.global_position + (Vector2.DOWN * 10))

@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Behaviours/DiggingBehaviour.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/pixel.tres" type="DynamicFont" id=2]
+[ext_resource path="res://AudioPlayer/AudioPlayer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Audio/break.wav" type="AudioStream" id=4]
 
 [node name="DiggingBehaviour" type="Node2D"]
 z_index = 6
@@ -23,5 +25,8 @@ __meta__ = {
 [node name="DigTimer" type="Timer" parent="."]
 wait_time = 0.4
 one_shot = true
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource( 3 )]
+stream = ExtResource( 4 )
 
 [connection signal="timeout" from="DigTimer" to="." method="_on_DigTimer_timeout"]

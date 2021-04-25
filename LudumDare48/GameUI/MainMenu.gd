@@ -2,8 +2,8 @@ extends Control
 
 var game_started := false
 
-onready var start_button: Button = $VBoxContainer/StartButton
-onready var resume_button: Button = $VBoxContainer/ResumeButton
+onready var start_button: Button = $Center/VBoxContainer/StartButton
+onready var resume_button: Button = $Center/VBoxContainer/ResumeButton
 
 
 func _on_StartButton_pressed():

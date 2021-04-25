@@ -9,6 +9,7 @@ onready var move_speed := G.dwarf_speed
 onready var mine_timer: Timer = $MineTimer
 onready var mine_amount_label: Label = $MineAmountLabel
 onready var walk_behaviour: PackedScene = load("res://Behaviours/WalkBehaviour.tscn")
+onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 
 
 func _ready() -> void:
@@ -61,6 +62,7 @@ func _physics_process(_delta):
 	
 	dwarf.velocity.x = move_speed
 
+
 func mine(direction: Vector2):
 	mining = true
 	mine_dir = direction
@@ -74,4 +76,6 @@ func _on_MineTimer_timeout():
 		mine_amount_label.text = ""
 	else:
 		mine_amount_label.text = str(mine_amount)
+	audio.ran_pitch()
+	audio.play()
 	G.map.mine_tile(dwarf.global_position + (mine_dir * 5))
