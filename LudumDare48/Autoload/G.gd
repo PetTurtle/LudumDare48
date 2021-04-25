@@ -1,6 +1,8 @@
 extends Node
 
-var money = 0
+signal money_changed
+
+var money: int = 0
 var dwarf_speed := 15
 
 var map: Node2D
@@ -23,3 +25,8 @@ func set_behaviours(behaviours_node: Node2D) -> void:
 
 func set_behaviour_placer(behaviour_placer_node: Node2D) -> void:
 	behaviour_placer = behaviour_placer_node
+
+
+func set_money(value: int) -> void:
+	money = value
+	emit_signal("money_changed")

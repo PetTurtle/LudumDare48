@@ -1,5 +1,6 @@
 extends Node2D
 
+var price: int
 var placed := false
 var cancel_point: Vector2
 var cancel_distance := 10
@@ -77,11 +78,14 @@ func _process(_delta):
 			cancel()
 
 
-func place(packed_scene: PackedScene, drag: bool, axis: int, max_distance: int, _needs_floor: bool):
+func place(packed_scene: PackedScene, drag: bool, axis: int, max_distance: int, _needs_floor: bool, _price: int):
 	if is_processing():
 		behaviour.queue_free()
 		line.visible = false
 		arrow.visible = false
+		
+	if (G.money < _price):
+		return
 	
 	set_process(true)
 	outline.visible = true
@@ -93,6 +97,7 @@ func place(packed_scene: PackedScene, drag: bool, axis: int, max_distance: int, 
 	drag_axis = axis
 	drag_max_distance = max_distance * G.map.get_cell_size()
 	needs_floor = _needs_floor
+	price = _price
 	animation.play("Blink")
 
 
@@ -108,7 +113,7 @@ func finish():
 	arrow.visible = false
 	outline.visible = false
 	animation.stop()
-
+	G.set_money(G.money - price)
 
 func cancel():
 	set_process(false)
@@ -123,4 +128,4 @@ func _is_valid_pos(pos: Vector2):
 	collision_checker.position = pos
 	if needs_floor and (not G.map.has_floor(pos) or collision_checker.get_overlapping_bodies().size() > 0):
 		return false
-	return G.map.get_tile(pos) == -1 and collision_checker.get_overlapping_areas().size() <= 1
+	return not G.map.has_tile(pos) and collision_checker.get_overlapping_areas().size() <= 1

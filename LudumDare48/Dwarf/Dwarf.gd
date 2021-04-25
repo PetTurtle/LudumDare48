@@ -3,7 +3,7 @@ extends KinematicBody2D
 var velocity := Vector2.ZERO
 var max_speed := 13
 var gravity := 100
-var prev_y := 0
+var prev_y: float = 0
 
 var curr_behaviour: Behaviour
 onready var _sprite: AnimatedSprite = $Sprite

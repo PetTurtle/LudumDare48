@@ -1,7 +1,6 @@
 extends Node2D
 
 onready var terrain_map: TileMap = $TerrainMap
-onready var background_map: TileMap = $BackgroundMap 
 
 
 func _init():
@@ -10,17 +9,30 @@ func _init():
 
 func mine_tile(point: Vector2) -> void:
 	var map_point := terrain_map.world_to_map(point)
+	var id = terrain_map.get_cellv(map_point)
+	if id == 3 or id == 10:
+		return
+	
+	if id == 4:
+		G.set_money(G.money + 2)
+	elif id == 5:
+		G.set_money(G.money + 4)
+	elif id == 10:
+		G.set_money(G.money + 8)
+	
 	terrain_map.set_cellv(map_point, -1)
 
 
-func get_tile(point: Vector2) -> int:
+func has_tile(point: Vector2) -> bool:
 	var map_point := terrain_map.world_to_map(point)
-	return terrain_map.get_cellv(map_point)
+	var id = terrain_map.get_cellv(map_point)
+	return id != -1 and id != 7 and id != 8 and id != 9
 
 
 func has_floor(point: Vector2) -> bool:
 	var map_point := terrain_map.world_to_map(point)
-	return terrain_map.get_cellv(map_point + Vector2(0, 1)) != -1
+	var id = terrain_map.get_cellv(map_point + Vector2(0, 1))
+	return id != -1 and id != 7 and id != 8 and id != 9
 
 func get_clamped(point: Vector2) -> Vector2:
 	var map_point := terrain_map.world_to_map(point)
@@ -40,6 +52,14 @@ func _explode(x: int, y: int, stength: int) -> void:
 	if stength <= 0:
 		return
 	
+	var id = terrain_map.get_cell(x, y)
+	if id == 4:
+		G.set_money(G.money + 2)
+	elif id == 5:
+		G.set_money(G.money + 4)
+	elif id == 10:
+		G.set_money(G.money + 8)
+		
 	terrain_map.set_cell(x, y, -1)
 	_explode(x + 1, y, stength - 1)
 	_explode(x - 1, y, stength - 1)
