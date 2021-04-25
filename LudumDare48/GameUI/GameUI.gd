@@ -36,10 +36,10 @@ func _ready() -> void:
 		"explode": _create_button(explode_image, 4, explode_scene, false, -1, -1, true)
 	}
 	
-#	buttons["barrier"].visible = false
-#	buttons["jump"].visible = false
-#	buttons["float"].visible = false
-#	buttons["explode"].visible = false
+	buttons["barrier"].visible = false
+	buttons["jump"].visible = false
+	buttons["float"].visible = false
+	buttons["explode"].visible = false
 	var _e = G.connect("money_changed", self, "_on_money_change")
 	_e = G.connect("money_increased", self, "_on_money_increased")
 
@@ -62,3 +62,9 @@ func _on_money_change():
 func _on_money_increased():
 	audio.ran_pitch()
 	audio.play()
+
+
+func _on_BuyDwarfButton_pressed():
+	if G.money >= 10:
+		G.set_money(G.money - 10)
+		G.spawn_dwarf()

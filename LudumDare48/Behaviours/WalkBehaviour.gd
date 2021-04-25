@@ -1,6 +1,6 @@
 extends Behaviour
 
-onready var move_speed := G.dwarf_speed
+onready var move_speed = G.dwarf_speed
 onready var walk_behaviour: PackedScene = load("res://Behaviours/WalkBehaviour.tscn")
 
 

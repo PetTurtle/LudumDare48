@@ -1,9 +1,11 @@
 extends Node2D
 
+var unlocked := false
 
 export var unlock := ""
 
 onready var parent: Area2D = get_parent()
+onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 
 
 func _ready() -> void:
@@ -11,4 +13,8 @@ func _ready() -> void:
 
 
 func _on_body_entered(_body: Node) -> void:
-	G.ui.unlock(unlock)
+	if not unlocked:
+		G.ui.unlock(unlock)
+		audio.ran_pitch()
+		audio.play()
+		unlocked = true

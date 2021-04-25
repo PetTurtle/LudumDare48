@@ -9,9 +9,9 @@
 [ext_resource path="res://GameUI/Sprites/coin/coin4.png" type="Texture" id=7]
 [ext_resource path="res://GameUI/Sprites/coin/coin5.png" type="Texture" id=8]
 [ext_resource path="res://GameUI/Sprites/coin/coin3.png" type="Texture" id=9]
-[ext_resource path="res://GameUI/Sprites/hud.png" type="Texture" id=10]
 [ext_resource path="res://Audio/coin.wav" type="AudioStream" id=11]
 [ext_resource path="res://AudioPlayer/AudioPlayer.tscn" type="PackedScene" id=12]
+[ext_resource path="res://GameUI/WinScreen.gd" type="Script" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -22,10 +22,151 @@ animations = [ {
 } ]
 
 [node name="GameUI" type="Control"]
+pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_vertical = 3
 script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WinScreen" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="WinScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.435294 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="WinScreen"]
+anchor_right = 1.0
+margin_top = 34.6478
+margin_bottom = 44.6478
+custom_fonts/font = ExtResource( 1 )
+text = "Victory!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="VBoxContainer" parent="WinScreen"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -39.5
+margin_top = -28.5
+margin_right = 39.5
+margin_bottom = 28.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="WinScreen/HBoxContainer"]
+margin_right = 79.0
+margin_bottom = 10.0
+
+[node name="Label2" type="Label" parent="WinScreen/HBoxContainer/HBoxContainer"]
+margin_right = 50.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 50, 0 )
+custom_fonts/font = ExtResource( 1 )
+text = "Time: "
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time" type="Label" parent="WinScreen/HBoxContainer/HBoxContainer"]
+margin_left = 54.0
+margin_right = 59.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 1 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="WinScreen/HBoxContainer"]
+margin_top = 14.0
+margin_right = 79.0
+margin_bottom = 24.0
+
+[node name="a" type="Label" parent="WinScreen/HBoxContainer/HBoxContainer3"]
+margin_right = 50.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 50, 0 )
+custom_fonts/font = ExtResource( 1 )
+text = "Deaths:"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Deaths2" type="Label" parent="WinScreen/HBoxContainer/HBoxContainer3"]
+margin_left = 54.0
+margin_right = 59.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 1 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="WinScreen/HBoxContainer"]
+margin_top = 28.0
+margin_right = 79.0
+margin_bottom = 38.0
+
+[node name="a" type="Label" parent="WinScreen/HBoxContainer/HBoxContainer2"]
+margin_right = 50.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 50, 0 )
+custom_fonts/font = ExtResource( 1 )
+text = "Total Coins:"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TotalCoins2" type="Label" parent="WinScreen/HBoxContainer/HBoxContainer2"]
+margin_left = 54.0
+margin_right = 59.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 1 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExitButton" type="Button" parent="WinScreen/HBoxContainer"]
+margin_top = 42.0
+margin_right = 79.0
+margin_bottom = 52.0
+custom_styles/hover = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 2 )
+custom_styles/focus = ExtResource( 2 )
+custom_styles/disabled = ExtResource( 2 )
+custom_styles/normal = ExtResource( 2 )
+custom_fonts/font = ExtResource( 1 )
+text = "Exit Game"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -41,7 +182,7 @@ __meta__ = {
 [node name="Tint" type="ColorRect" parent="MainMenu"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.160784 )
+color = Color( 0, 0, 0, 0.619608 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -59,37 +200,34 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NinePatchRect" type="NinePatchRect" parent="MainMenu/Center"]
+[node name="TitleLabel" type="Label" parent="MainMenu/Center"]
 anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 10 )
-patch_margin_left = 8
-patch_margin_top = 8
-patch_margin_right = 8
-patch_margin_bottom = 8
+margin_top = -35.0
+margin_bottom = -25.0
+custom_fonts/font = ExtResource( 1 )
+text = "Mini Miners"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/Center"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -31.0
+margin_top = -21.5001
+margin_right = 31.0
+margin_bottom = 21.5001
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TitleLabel" type="Label" parent="MainMenu/Center/VBoxContainer"]
+[node name="StartButton" type="Button" parent="MainMenu/Center/VBoxContainer"]
 margin_right = 62.0
 margin_bottom = 10.0
-custom_fonts/font = ExtResource( 1 )
-text = "8x Miners"
-align = 1
-valign = 1
-
-[node name="StartButton" type="Button" parent="MainMenu/Center/VBoxContainer"]
-margin_top = 14.0
-margin_right = 62.0
-margin_bottom = 24.0
 custom_styles/hover = ExtResource( 2 )
 custom_styles/pressed = ExtResource( 2 )
 custom_styles/focus = ExtResource( 2 )
@@ -118,9 +256,9 @@ __meta__ = {
 }
 
 [node name="ExitButton" type="Button" parent="MainMenu/Center/VBoxContainer"]
-margin_top = 28.0
+margin_top = 14.0
 margin_right = 62.0
-margin_bottom = 38.0
+margin_bottom = 24.0
 custom_styles/hover = ExtResource( 2 )
 custom_styles/pressed = ExtResource( 2 )
 custom_styles/focus = ExtResource( 2 )
@@ -131,13 +269,6 @@ text = "Exit Game"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Coin" type="AnimatedSprite" parent="."]
-position = Vector2( 17.0287, 173.435 )
-frames = SubResource( 1 )
-frame = 3
-speed_scale = 2.0
-playing = true
 
 [node name="Hud" type="Control" parent="."]
 anchor_top = 1.0
@@ -159,13 +290,45 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CoinLanel" type="Label" parent="Hud"]
+[node name="BuyDwarfButton" type="Button" parent="Hud"]
+anchor_left = 1.0
 anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 17.0
-margin_top = -12.0
-margin_right = 65.0
-margin_bottom = -2.0
+margin_left = -49.0795
+margin_top = -16.8636
+margin_right = -7.07953
+margin_bottom = -6.86359
+custom_styles/hover = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 2 )
+custom_styles/focus = ExtResource( 2 )
+custom_styles/disabled = ExtResource( 2 )
+custom_styles/normal = ExtResource( 2 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_hover = Color( 0.729412, 0.729412, 0.729412, 1 )
+custom_colors/font_color_pressed = Color( 0.529412, 0.529412, 0.529412, 1 )
+text = "Buy Dwarf"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Hud/BuyDwarfButton"]
+margin_left = -8.43427
+margin_top = 5.15714
+margin_right = -0.434265
+margin_bottom = 19.1571
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.988235, 1, 0.752941, 1 )
+text = "10"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CoinLanel" type="Label" parent="Hud"]
+margin_left = 18.0
+margin_top = 6.0
+margin_right = 35.0
+margin_bottom = 16.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.988235, 1, 0.752941, 1 )
 text = "0"
@@ -173,9 +336,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Coin" type="AnimatedSprite" parent="Hud"]
+position = Vector2( 20.6891, 11.6828 )
+frames = SubResource( 1 )
+frame = 3
+speed_scale = 2.0
+playing = true
+
 [node name="AudioStreamPlayer" parent="." instance=ExtResource( 12 )]
 stream = ExtResource( 11 )
 
+[connection signal="visibility_changed" from="WinScreen" to="WinScreen" method="_on_WinScreen_visibility_changed"]
+[connection signal="pressed" from="WinScreen/HBoxContainer/ExitButton" to="MainMenu" method="_on_ExitButton_pressed"]
+[connection signal="visibility_changed" from="MainMenu" to="MainMenu" method="_on_MainMenu_visibility_changed"]
 [connection signal="pressed" from="MainMenu/Center/VBoxContainer/StartButton" to="MainMenu" method="_on_StartButton_pressed"]
 [connection signal="pressed" from="MainMenu/Center/VBoxContainer/ResumeButton" to="MainMenu" method="_on_BackButton_pressed"]
 [connection signal="pressed" from="MainMenu/Center/VBoxContainer/ExitButton" to="MainMenu" method="_on_ExitButton_pressed"]
+[connection signal="pressed" from="Hud/BuyDwarfButton" to="." method="_on_BuyDwarfButton_pressed"]

@@ -87,5 +87,6 @@ func get_collider(dir: Vector2) -> Object:
 
 
 func kill():
+	G.deaths += 1
 	G.dwarfs.spawn_gore(position)
 	queue_free()

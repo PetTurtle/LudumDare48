@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dead.png-09a60ecda15b2329dc666db3f4a09644.stex"
+path="res://.import/spikes.png-05d93fce3a3e0a91b58ce3bbda776cc5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://BehaviourZones/Sprites/dead.png"
-dest_files=[ "res://.import/dead.png-09a60ecda15b2329dc666db3f4a09644.stex" ]
+source_file="res://BehaviourZones/Sprites/spikes.png"
+dest_files=[ "res://.import/spikes.png-05d93fce3a3e0a91b58ce3bbda776cc5.stex" ]
 
 [params]
 
