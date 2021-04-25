@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://BehaviourZones/ExplodeZone.gd" type="Script" id=1]
 [ext_resource path="res://BehaviourZones/Sprites/explosion.png" type="Texture" id=2]
@@ -7,6 +7,15 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2, 2.5 )
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 0.993182 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.0204545 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=3]
+colors = PoolColorArray( 1, 0.113281, 0.113281, 1, 0.984375, 0.690006, 0.0653687, 1 )
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 14.3583
 
 [node name="ExplodeZone" type="Area2D"]
 collision_mask = 4
@@ -26,6 +35,31 @@ shape = SubResource( 1 )
 
 [node name="AudioStreamPlayer" parent="." instance=ExtResource( 4 )]
 stream = ExtResource( 3 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2( 2.22773, -1.71486 )
+emitting = false
+amount = 5
+lifetime = 0.2
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2( 0, -1 )
+initial_velocity = 7.87
+angular_velocity = 68.03
+angular_velocity_random = 1.0
+radial_accel_random = 1.0
+damping = 5.0
+angle = 68.0
+angle_random = 1.0
+scale_amount_curve = SubResource( 2 )
+color_ramp = SubResource( 3 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 4 )
 
 [connection signal="body_entered" from="." to="." method="_on_ExplodeZone_body_entered"]
 [connection signal="timeout" from="ExplosionTimer" to="." method="_on_ExplosionTimer_timeout"]

@@ -22,7 +22,7 @@ onready var dwarf_scene: PackedScene = preload("res://Dwarf/Dwarf.tscn")
 func _ready():
 	timer = Timer.new()
 	add_child(timer)
-	timer.connect("timeout", self, "_time")
+	var _e = timer.connect("timeout", self, "_time")
 	
 
 func start_timer():
