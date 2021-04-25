@@ -1,9 +1,10 @@
-extends RigidBody2D
+extends KinematicBody2D
 
-var max_velocity := 8
+var velocity := Vector2.ZERO
+var max_speed := 13
+var gravity := 100
 
 var curr_behaviour: Behaviour
-
 onready var _sprite: AnimatedSprite = $Sprite
 onready var _up_ray: RayCast2D = $UpRaycast
 onready var _up_ray2: RayCast2D = $UpRaycast2
@@ -20,10 +21,17 @@ func _ready() -> void:
 	var _walk = set_behaviour(_walk_behaviour)
 
 
-func _physics_process(_delta) -> void:
-	if linear_velocity.x != 0:
-		_sprite.flip_h = linear_velocity.x < 0
+func _physics_process(delta) -> void:
+	if velocity.x != 0:
+		_sprite.flip_h = velocity.x < 0
 	
+	velocity.x = clamp(velocity.x, -max_speed, max_speed)
+	
+	velocity.y += gravity * delta
+	if is_colliding(Vector2.DOWN) and velocity.y > 0:
+		velocity.y = 0
+	
+	velocity = move_and_slide(velocity)
 
 
 func set_behaviour(behavour_packed_scene: PackedScene) -> Node2D:

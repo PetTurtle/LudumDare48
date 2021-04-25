@@ -7,10 +7,9 @@
 radius = 2.5
 height = 1.60279
 
-[node name="Dwarf" type="RigidBody2D"]
+[node name="Dwarf" type="KinematicBody2D"]
 collision_layer = 4
 collision_mask = 10
-mode = 2
 script = ExtResource( 3 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
@@ -18,7 +17,7 @@ position = Vector2( -1, -1 )
 z_index = 5
 frames = ExtResource( 1 )
 animation = "walk"
-frame = 1
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -67,14 +66,14 @@ collision_mask = 10
 
 [node name="RightRaycast" type="RayCast2D" parent="."]
 position = Vector2( 0.5, 3.2 )
-rotation = 4.71239
+rotation = -1.5708
 enabled = true
 cast_to = Vector2( 0, 2 )
 collision_mask = 10
 
 [node name="RightRaycast2" type="RayCast2D" parent="."]
 position = Vector2( 0.5, -2.06356 )
-rotation = 4.71239
+rotation = -1.5708
 enabled = true
 cast_to = Vector2( 0, 2 )
 collision_mask = 10

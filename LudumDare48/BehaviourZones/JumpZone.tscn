@@ -4,7 +4,7 @@
 [ext_resource path="res://BehaviourZones/Sprites/jump.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 1.69817, 0.988092 )
+extents = Vector2( 0.563933, 0.988092 )
 
 [node name="JumpZone" type="Area2D"]
 collision_mask = 4

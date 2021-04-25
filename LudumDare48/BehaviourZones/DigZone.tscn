@@ -4,7 +4,7 @@
 [ext_resource path="res://BehaviourZones/Sprites/shovel.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 0.5, 1 )
+extents = Vector2( 0.1, 1 )
 
 [node name="Area2D" type="Area2D"]
 collision_mask = 4

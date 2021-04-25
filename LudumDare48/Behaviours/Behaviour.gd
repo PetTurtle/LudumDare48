@@ -1,7 +1,7 @@
 extends Node2D
 class_name Behaviour
 
-var dwarf: RigidBody2D
+var dwarf: KinematicBody2D
 
 
 func _ready() -> void:

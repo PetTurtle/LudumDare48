@@ -1,7 +1,7 @@
 extends Node
 
 var money = 0
-var dwarf_speed := 15.0
+var dwarf_speed := 15
 
 var map: Node2D
 var dwarfs: Node2D

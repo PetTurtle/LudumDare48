@@ -36,4 +36,4 @@ func _physics_process(_delta) -> void:
 		var walk = dwarf.set_behaviour(walk_behaviour)
 		walk.set_moving_right(true)
 
-	dwarf.linear_velocity.x = move_speed
+	dwarf.velocity.x = move_speed

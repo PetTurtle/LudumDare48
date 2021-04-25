@@ -19,6 +19,8 @@ func set_mine_amount(value: int):
 
 
 func _physics_process(_delta):
+	dwarf.velocity.x = 0
+	
 	if mining:
 		return
 	

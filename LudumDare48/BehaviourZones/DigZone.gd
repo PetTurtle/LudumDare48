@@ -6,6 +6,7 @@ onready var dig_behaviour: PackedScene = load("res://Behaviours/DiggingBehaviour
 
 func _on_Area2D_body_entered(body):
 	var dwarf: PhysicsBody2D = body
+	dwarf.position.x = position.x
 
 	if dwarf.position.x < position.x:
 		var dig = dwarf.set_behaviour(dig_behaviour)
