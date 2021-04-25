@@ -37,13 +37,11 @@ func _physics_process(_delta) -> void:
 	if dwarf.is_long_colliding():
 		dwarf.velocity.x = 0
 		return
-		
+	
 	if moving_right() and dwarf.is_colliding(Vector2.RIGHT):
-		var walk = dwarf.set_behaviour(walk_behaviour)
-		walk.set_moving_right(false)
+		move_speed = -move_speed
 	elif moving_left() and dwarf.is_colliding(Vector2.LEFT):
-		var walk = dwarf.set_behaviour(walk_behaviour)
-		walk.set_moving_right(true)
+		move_speed = -move_speed
 	
 	dwarf.velocity.y *= 0.5
 	dwarf.velocity.x = move_speed

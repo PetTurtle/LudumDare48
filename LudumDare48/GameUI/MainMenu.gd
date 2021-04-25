@@ -23,7 +23,7 @@ func _on_BackButton_pressed():
 
 
 func _process(_delta):
-	if game_started and Input.is_action_just_pressed("escape"):
+	if game_started and Input.is_action_just_pressed("escape") and not G.game_over:
 		self.visible = not self.visible
 
 

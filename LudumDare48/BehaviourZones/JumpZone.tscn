@@ -31,7 +31,6 @@ position = Vector2( 0, 2 )
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0, 1 )
 frames = SubResource( 2 )
 
 [node name="AudioStreamPlayer" parent="." instance=ExtResource( 2 )]

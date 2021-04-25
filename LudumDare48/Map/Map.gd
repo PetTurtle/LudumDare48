@@ -33,7 +33,7 @@ func mine_tile(point: Vector2) -> void:
 	elif id == stone_ore:
 		G.set_money(G.money + 4)
 	elif id == hard_stone_ore:
-		G.set_money(G.money + 8)
+		G.set_money(G.money + 12)
 	
 	terrain_map.set_cellv(map_point, -1)
 	terrain_map.update_bitmask_area(map_point)
@@ -77,13 +77,16 @@ func _explode(x: int, y: int, stength: int) -> void:
 		return
 	
 	var id = terrain_map.get_cell(x, y)
+	if (id == hard_stone or id == hard_stone_ore) and stength < 2:
+		return
+	
 	if id == sand_ore:
 		G.set_money(G.money + 2)
 	elif id == stone_ore:
 		G.set_money(G.money + 4)
 	elif id == hard_stone_ore:
-		G.set_money(G.money + 8)
-		
+		G.set_money(G.money + 12)
+	
 	var map_point = Vector2(x, y)
 	terrain_map.set_cellv(map_point, -1)
 	terrain_map.update_bitmask_area(map_point)

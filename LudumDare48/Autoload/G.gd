@@ -1,5 +1,6 @@
 extends Node
 
+signal game_over
 signal money_changed
 signal money_increased
 
@@ -10,6 +11,7 @@ var money: int = 0
 var deaths: int = 0
 var dwarf_speed := 15
 
+var game_over := false
 var flag: Node2D = null
 var ui: Control
 var map: Node2D
@@ -64,10 +66,15 @@ func set_behaviour_placer(behaviour_placer_node: Node2D) -> void:
 func set_money(value: int) -> void:
 	if (money < value):
 		emit_signal("money_increased")
-		total_money += (money - value)
+		total_money += (value - money)
 	
 	money = value
 	emit_signal("money_changed")
+
+
+func end_game():
+	game_over = true
+	emit_signal("game_over")
 
 
 func spawn_dwarf() -> void:

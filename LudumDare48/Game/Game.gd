@@ -1,6 +1,6 @@
 extends Node
 
-export var init_price: int = 50
+export var init_price: int = 80
 
 
 func _ready() -> void:

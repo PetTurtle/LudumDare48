@@ -13,7 +13,7 @@ extents = Vector2( 10, 100000 )
 script = ExtResource( 4 )
 
 [node name="Camera" parent="." instance=ExtResource( 5 )]
-bottom_limit = 500.0
+bottom_limit = 340.0
 
 [node name="SideWalls" type="StaticBody2D" parent="."]
 position = Vector2( -10, 0 )
