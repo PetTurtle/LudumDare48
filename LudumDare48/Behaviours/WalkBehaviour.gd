@@ -29,6 +29,10 @@ func _physics_process(_delta) -> void:
 	else:
 		dwarf.set_animation("walk")
 	
+	if dwarf.is_long_colliding():
+		dwarf.velocity.x = 0
+		return
+	
 	if moving_right() and dwarf.is_colliding(Vector2.RIGHT):
 		var walk = dwarf.set_behaviour(walk_behaviour)
 		walk.set_moving_right(false)

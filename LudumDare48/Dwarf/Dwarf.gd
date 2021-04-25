@@ -3,6 +3,7 @@ extends KinematicBody2D
 var velocity := Vector2.ZERO
 var max_speed := 13
 var gravity := 100
+var prev_y := 0
 
 var curr_behaviour: Behaviour
 onready var _sprite: AnimatedSprite = $Sprite
@@ -14,6 +15,8 @@ onready var _left_ray: RayCast2D = $LeftRaycast
 onready var _left_ray2: RayCast2D = $LeftRaycast2
 onready var _right_ray: RayCast2D = $RightRaycast
 onready var _right_ray2: RayCast2D = $RightRaycast2
+onready var _left_long_ray: RayCast2D = $LeftLongRaycast
+onready var _right_long_ray: RayCast2D = $RightLongRaycast
 onready var _walk_behaviour: PackedScene = preload("res://Behaviours/WalkBehaviour.tscn")
 
 
@@ -32,6 +35,10 @@ func _physics_process(delta) -> void:
 		velocity.y = 0
 	
 	velocity = move_and_slide(velocity)
+	
+	if (prev_y - velocity.y > 73):
+		kill()
+	prev_y = velocity.y
 
 
 func set_behaviour(behavour_packed_scene: PackedScene) -> Node2D:
@@ -63,6 +70,10 @@ func is_colliding(dir: Vector2) -> bool:
 	return false
 
 
+func is_long_colliding() -> bool:
+	return _left_long_ray.is_colliding() and _right_long_ray.is_colliding()
+
+
 func get_collider(dir: Vector2) -> Object:
 	if dir == Vector2.UP:
 		return _up_ray.get_collider()
@@ -73,3 +84,8 @@ func get_collider(dir: Vector2) -> Object:
 	elif dir == Vector2.RIGHT:
 		return _right_ray.get_collider()
 	return null
+
+
+func kill():
+	G.dwarfs.spawn_gore(position)
+	queue_free()
