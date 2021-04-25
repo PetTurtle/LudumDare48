@@ -5,10 +5,15 @@ signal money_changed
 var money: int = 0
 var dwarf_speed := 15
 
+var ui: Control
 var map: Node2D
 var dwarfs: Node2D
 var behaviours: Node2D
 var behaviour_placer: Node2D
+
+
+func set_ui(ui_control: Control) -> void:
+	ui = ui_control
 
 
 func set_map(map_node: Node2D) -> void:
