@@ -18,5 +18,5 @@
 
 # Links
 
-* [Ludum Dare](https://ldjam.com/events/ludum-dare/48/mini-miners/edit)
+* [Ludum Dare](https://ldjam.com/events/ludum-dare/48/mini-miners)
 * [Itch.io](https://petturtle.itch.io/mini)
