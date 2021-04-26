@@ -31,6 +31,79 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Hud" type="Control" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -21.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hotbar" type="HBoxContainer" parent="Hud"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -18.0
+custom_constants/separation = 1
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BuyDwarfButton" type="Button" parent="Hud"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -49.0795
+margin_top = -16.8636
+margin_right = -7.07953
+margin_bottom = -6.86359
+custom_styles/hover = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 2 )
+custom_styles/focus = ExtResource( 2 )
+custom_styles/disabled = ExtResource( 2 )
+custom_styles/normal = ExtResource( 2 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_hover = Color( 0.729412, 0.729412, 0.729412, 1 )
+custom_colors/font_color_pressed = Color( 0.529412, 0.529412, 0.529412, 1 )
+text = "Buy Dwarf"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Hud/BuyDwarfButton"]
+margin_left = -8.43427
+margin_top = 5.15714
+margin_right = -0.434265
+margin_bottom = 19.1571
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.988235, 1, 0.752941, 1 )
+text = "10"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CoinLanel" type="Label" parent="Hud"]
+margin_left = 18.0
+margin_top = 6.0
+margin_right = 35.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.988235, 1, 0.752941, 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Coin" type="AnimatedSprite" parent="Hud"]
+position = Vector2( 20.6891, 11.6828 )
+frames = SubResource( 1 )
+frame = 1
+speed_scale = 2.0
+playing = true
+
 [node name="WinScreen" type="Control" parent="."]
 visible = false
 anchor_right = 1.0
@@ -182,7 +255,7 @@ __meta__ = {
 [node name="Tint" type="ColorRect" parent="MainMenu"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.619608 )
+color = Color( 0, 0, 0, 0.784314 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -255,6 +328,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="RestartButton" type="Button" parent="MainMenu/Center/VBoxContainer"]
+visible = false
+margin_top = 14.0
+margin_right = 62.0
+margin_bottom = 24.0
+custom_styles/hover = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 2 )
+custom_styles/focus = ExtResource( 2 )
+custom_styles/disabled = ExtResource( 2 )
+custom_styles/normal = ExtResource( 2 )
+custom_fonts/font = ExtResource( 1 )
+text = "Restart"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ExitButton" type="Button" parent="MainMenu/Center/VBoxContainer"]
 margin_top = 14.0
 margin_right = 62.0
@@ -270,86 +359,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Hud" type="Control" parent="."]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -21.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Hotbar" type="HBoxContainer" parent="Hud"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -18.0
-custom_constants/separation = 1
-alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="BuyDwarfButton" type="Button" parent="Hud"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -49.0795
-margin_top = -16.8636
-margin_right = -7.07953
-margin_bottom = -6.86359
-custom_styles/hover = ExtResource( 2 )
-custom_styles/pressed = ExtResource( 2 )
-custom_styles/focus = ExtResource( 2 )
-custom_styles/disabled = ExtResource( 2 )
-custom_styles/normal = ExtResource( 2 )
-custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color_hover = Color( 0.729412, 0.729412, 0.729412, 1 )
-custom_colors/font_color_pressed = Color( 0.529412, 0.529412, 0.529412, 1 )
-text = "Buy Dwarf"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="Hud/BuyDwarfButton"]
-margin_left = -8.43427
-margin_top = 5.15714
-margin_right = -0.434265
-margin_bottom = 19.1571
-custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color = Color( 0.988235, 1, 0.752941, 1 )
-text = "10"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CoinLanel" type="Label" parent="Hud"]
-margin_left = 18.0
-margin_top = 6.0
-margin_right = 35.0
-margin_bottom = 16.0
-custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color = Color( 0.988235, 1, 0.752941, 1 )
-text = "0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Coin" type="AnimatedSprite" parent="Hud"]
-position = Vector2( 20.6891, 11.6828 )
-frames = SubResource( 1 )
-frame = 3
-speed_scale = 2.0
-playing = true
-
 [node name="AudioStreamPlayer" parent="." instance=ExtResource( 12 )]
 stream = ExtResource( 11 )
 
+[connection signal="pressed" from="Hud/BuyDwarfButton" to="." method="_on_BuyDwarfButton_pressed"]
 [connection signal="visibility_changed" from="WinScreen" to="WinScreen" method="_on_WinScreen_visibility_changed"]
 [connection signal="pressed" from="WinScreen/HBoxContainer/ExitButton" to="MainMenu" method="_on_ExitButton_pressed"]
 [connection signal="visibility_changed" from="MainMenu" to="MainMenu" method="_on_MainMenu_visibility_changed"]
 [connection signal="pressed" from="MainMenu/Center/VBoxContainer/StartButton" to="MainMenu" method="_on_StartButton_pressed"]
 [connection signal="pressed" from="MainMenu/Center/VBoxContainer/ResumeButton" to="MainMenu" method="_on_BackButton_pressed"]
+[connection signal="pressed" from="MainMenu/Center/VBoxContainer/RestartButton" to="MainMenu" method="_on_RestartButton_pressed"]
 [connection signal="pressed" from="MainMenu/Center/VBoxContainer/ExitButton" to="MainMenu" method="_on_ExitButton_pressed"]
-[connection signal="pressed" from="Hud/BuyDwarfButton" to="." method="_on_BuyDwarfButton_pressed"]

@@ -4,6 +4,7 @@ var game_started := false
 
 onready var start_button: Button = $Center/VBoxContainer/StartButton
 onready var resume_button: Button = $Center/VBoxContainer/ResumeButton
+onready var restart_button: Button = $Center/VBoxContainer/RestartButton
 
 
 func _on_StartButton_pressed():
@@ -11,6 +12,7 @@ func _on_StartButton_pressed():
 	self.visible = false
 	start_button.visible = false
 	resume_button.visible = true
+	restart_button.visible = true
 
 
 func _on_ExitButton_pressed():
@@ -34,3 +36,8 @@ func _on_MainMenu_visibility_changed():
 		else:
 			G.start_timer()
 			get_tree().paused = false
+
+
+func _on_RestartButton_pressed():
+	G.restart()
+	get_tree().reload_current_scene()

@@ -6,6 +6,7 @@ onready var mine_behaviour: PackedScene = load("res://Behaviours/MiningBehaviour
 
 
 func _on_Node2D_body_entered(body) -> void:
+	collision_mask = 0
 	var dwarf: PhysicsBody2D = body
 
 	if dwarf.position.x < position.x:

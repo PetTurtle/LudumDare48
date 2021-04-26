@@ -27,6 +27,13 @@ func _ready():
 	var _e = timer.connect("timeout", self, "_time")
 	
 
+func restart():
+	game_over = false
+	time = 0
+	total_money = 0
+	money = 0
+	flag = null
+
 func start_timer():
 	timer.start()
 
