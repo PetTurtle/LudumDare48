@@ -8,7 +8,7 @@
 extents = Vector2( 2.54946, 4.14033 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 4.66075, 6.42326 )
+extents = Vector2( 4.19061, 4.32165 )
 
 [node name="Rock" type="RigidBody2D"]
 collision_layer = 8
