@@ -7,6 +7,7 @@ onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 
 func _on_JumpZone_body_entered(body) -> void:
 	var dwarf: KinematicBody2D = body
+	dwarf.prev_y = -jump_speed
 	dwarf.velocity.y = -jump_speed
 	sprite.play("active")
 	audio.ran_pitch()
